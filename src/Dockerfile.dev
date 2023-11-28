@@ -1,0 +1,16 @@
+# Use a specific GoLang version as specified by the build argument
+FROM golang:1.21.3-bookworm
+
+
+# Set your working directory
+WORKDIR /
+
+# Copy your GoLang application source code into the container
+COPY . .
+
+RUN apt-get update && apt-get install -y build-essential pkg-config git
+
+# Install any necessary dependencies if needed
+
+#Comand run on bulding the container
+CMD ["go", "run", "main.go"]
